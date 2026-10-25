@@ -1,44 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    background-color: black;
+    background: linear-gradient(135deg, #0f172a, #1e1b4b, #311042);
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+    color: #fff;
+}
+
+/* Container styling */
+.container {
+    text-align: center;
+    z-index: 10;
+    padding: 20px;
+}
+
+/* Heart container and glowing animation */
+.heart-container {
+    position: relative;
+    width: 140px;
+    height: 130px;
+    margin: 0 auto 30px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: pulse 1.2s infinite ease-in-out;
 }
 
 .heart {
-  position: relative;
-  width: 100px;
-  height: 90px;
-  animation: pulse 1s infinite;
+    position: absolute;
+    width: 100px;
+    height: 90px;
+    background: #ff3366;
+    transform: rotate(-45deg);
+    box-shadow: 0 0 30px #ff3366, 0 0 60px #ff66b2;
 }
 
 .heart::before,
 .heart::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 52px;
-  height: 80px;
-  border-radius: 50px 50px 0 0;
-  background: red;
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 90px;
+    background: #ff3366;
+    border-radius: 50%;
 }
 
 .heart::before {
-  left: 52px;
-  transform: rotate(-45deg);
-  transform-origin: 0 100%;
+    top: -50px;
+    left: 0;
 }
 
 .heart::after {
-  left: 0;
-  transform: rotate(45deg);
-  transform-origin: 100% 100%;
+    left: 50px;
+    top: 0;
 }
 
+/* Name inside the heart */
+.heart-text {
+    position: relative;
+    z-index: 20;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    margin-top: -10px;
+}
+
+/* Heart pulsating keyframes */
 @keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.3); }
-  100% { transform: scale(1); }
+    0% {
+        transform: scale(0.95);
+    }
+    50% {
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 15px rgba(255, 51, 102, 0.8));
+    }
+    100% {
+        transform: scale(0.95);
+    }
+}
+
+/* Message Box styling */
+.message-box {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 420px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.message-box h1 {
+    font-size: 26px;
+    margin-bottom: 15px;
+    color: #ff99bb;
+}
+
+.message-box p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #e2e8f0;
+    margin-bottom: 15px;
+}
+
+.signature {
+    font-style: italic;
+    color: #cbd5e1;
+    font-size: 14px;
+    margin-top: 10px;
 }
